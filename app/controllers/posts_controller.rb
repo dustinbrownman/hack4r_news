@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :logged_in_check, :except => [:index, :show]
+
   def index
     @posts = Post.all
   end
@@ -8,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     if @post.save
       flash[:notice] = "Post saved!"
       render :show
@@ -27,4 +29,7 @@ private
     params.require(:post).permit(:title, :url)
   end
 
+  def logged_in_check
+    redirect_to login_path, alert: 'You must be logged in to do that' if current_user.nil?
+  end
 end

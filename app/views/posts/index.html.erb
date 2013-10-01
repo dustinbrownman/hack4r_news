@@ -1,5 +1,9 @@
 <ul>
   <% @posts.each do |post| %>
-    <li><%= link_to post.title, post.url %></li>
+    <li>
+      <%= link_to post.title, post.url %>
+      <%= button_to "upvote", { :controller => 'votes', :action => "create", :post_id => post.id } %>
+      <%= post.votes.count %>
+    </li>
   <% end %>
 </ul>

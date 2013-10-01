@@ -2,6 +2,7 @@ Hack4rNews::Application.routes.draw do
  resources :posts 
  resources :users
  resources :sessions
+ resources :votes
  
  get 'signup', to: 'users#new', as: 'signup'
  get 'login', to: 'sessions#new', as: 'login'
