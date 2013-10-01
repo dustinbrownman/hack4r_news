@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :logged_in_check, :except => [:index, :show]
 
   def index
-    @posts = Post.all
+    @posts = Post.sort_by_votes
   end
 
   def new

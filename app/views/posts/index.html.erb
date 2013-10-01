@@ -2,8 +2,9 @@
   <% @posts.each do |post| %>
     <li>
       <%= link_to post.title, post.url %>
+      <%= pluralize(post.votes.count, 'vote') %>
+      <%= post.created_at.to_time %>
       <%= button_to "upvote", { :controller => 'votes', :action => "create", :post_id => post.id } %>
-      <%= post.votes.count %>
     </li>
   <% end %>
 </ul>
