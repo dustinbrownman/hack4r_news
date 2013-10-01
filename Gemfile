@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'bootstrap-sass'
 gem 'validate_url'
+gem 'bcrypt-ruby', '3.0.1'
 
 group :test, :development do 
   gem 'rspec-rails'
