@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     if @post.save
       flash[:notice] = "Post saved!"
-      render :show
+      redirect_to @post
     else
       render :new
     end
@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = @post.comments.new(:user_id => current_user.id) if current_user
   end
 
 private

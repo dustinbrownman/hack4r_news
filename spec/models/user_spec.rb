@@ -6,6 +6,7 @@ describe User do
     should validate_uniqueness_of :email
   end
   it { should have_many :posts }
+  it { should have_many :comments }
   it { should validate_presence_of :email }
   it { should have_secure_password }
 

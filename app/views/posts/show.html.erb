@@ -3,3 +3,23 @@
 <h3><%= link_to @post.url, @post.url %></h3>
 <h5><%= @post.user.email %></h5>
 
+<% if current_user %>
+  <h1>New Comment</h1>
+  <%= form_for @comment do |f| %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :post_id %>
+    <%= f.label "Enter your text here" %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
+
+<% @post.comments.each do |comment| %>
+  <div class="comment">
+    <h6><%= comment.user.email %> - <span><%= comment.created_at %></span></h6>
+    <p><%= comment.content %></p>
+  </div>
+<% end %>
+
+
+
