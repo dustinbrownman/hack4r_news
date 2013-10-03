@@ -1,0 +1,25 @@
+
+<ul>
+  <% parent.comments.each do |comment| %>
+    <li>
+      <div class="comment">
+        <h6><%= comment.user.email %> - <span><%= comment.created_at %></span></h6>
+        <p><%= comment.content %></p>
+        <button class="reply">Reply</button>
+      </div>
+
+      <div class="reply-form">
+        <%= form_for Comment.new(commentable_id: comment.id, commentable_type: "Comment") do |f| %>
+          <%= f.hidden_field :commentable_id %>
+          <%= f.hidden_field :commentable_type %>
+          <%= f.text_area :content, id: 'reply_content', :class => 'form-control' %>
+          <%= f.submit "Submit", :class => 'btn btn-primary' %>
+        <% end %>
+      </div>
+
+      <%= render 'comments/replies', parent: comment %>
+
+    </li>
+
+  <% end %>
+</ul>

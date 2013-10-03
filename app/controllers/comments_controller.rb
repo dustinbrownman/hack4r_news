@@ -4,9 +4,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
     if @comment.save
       flash[:notice] = "Your comment has been posted for all to see!"
+      # binding.pry
       redirect_to @comment.post
     else
       render :new
@@ -15,6 +16,6 @@ class CommentsController < ApplicationController
 
 private
   def comment_params
-    params.require(:comment).permit(:content, :post_id, :user_id)
+    params.require(:comment).permit(:content, :commentable_type, :commentable_id)
   end
 end

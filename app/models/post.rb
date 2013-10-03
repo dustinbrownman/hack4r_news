@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   has_many :votes, :dependent => :destroy
-  has_many :comments
+  has_many :comments, :as => :commentable
 
   def self.sort_by_votes
     all.sort { |post_a, post_b| post_b.calculate_score <=> post_a.calculate_score }

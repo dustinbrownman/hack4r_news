@@ -7,3 +7,15 @@
 ul {
   list-style: none
 }
+
+.comment {
+  @extend .well
+}
+
+.reply {
+  @extend .btn, .btn-primary
+}
+
+.reply-form {
+  display: none;
+}
