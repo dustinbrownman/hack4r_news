@@ -1,16 +1,17 @@
 class CommentsController < ApplicationController
   def new
-    @comment = Comment.new
+    @comment = Comment.new(comment_params) if current_user
   end
 
   def create
     @comment = current_user.comments.new(comment_params)
     if @comment.save
-      flash[:notice] = "Your comment has been posted for all to see!"
-      # binding.pry
-      redirect_to @comment.post
+      respond_to do |format|
+        format.html { redirect_to @comment.post }
+        format.js
+      end
     else
-      render :new
+      redirect_to @comment.post, alert: 'something went wrong!'
     end
   end
 

@@ -1,0 +1,8 @@
+$('#new_comment').remove();
+$('#new_comment_link').show();
+//debugger;
+$('.comment-section').append('<%= j render "replies", comment: @comment %>');
+$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+
+// a miracle occurs, or, we find a way to highlight the new post.
+return false;
