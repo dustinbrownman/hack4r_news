@@ -1,9 +1,9 @@
-
-
-  <%= form_for @comment, remote: true do |f| %>
-    <%= f.hidden_field :commentable_id %>
-    <%= f.hidden_field :commentable_type %>
-    <%= f.label "Enter your text here" %>
-    <%= f.text_area :content, :class => 'form-control' %>
-    <%= f.submit "Submit", :class => 'btn btn-primary' %>
-  <% end %>
+<%= form_for @comment, remote: true do |f| %>
+  <%= f.hidden_field :commentable_id %>
+  <%= f.hidden_field :commentable_type %>
+  <div class="form-group">
+	  <%= f.label "Enter your text here" %>
+	  <%= f.text_area :content, :class => 'form-control' %>
+	</div>
+  <%= f.submit "Submit", :class => 'btn btn-primary' %>
+<% end %>

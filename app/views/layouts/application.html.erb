@@ -8,6 +8,12 @@
 </head>
 <body>
 
+
+
+<div class='container'>
+
+  <%= render 'layouts/header' %>
+
   <% if flash[:notice] %>
     <div class="alert alert-info">
       <%= flash[:notice] %>
@@ -19,10 +25,6 @@
       <%= flash[:alert] %>
     </div>
   <% end %>
-
-<div class='container'>
-
-  <%= render 'layouts/header' %>
 
   <%= yield %>
 

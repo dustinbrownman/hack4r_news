@@ -1,19 +1,16 @@
-<h2><%= @post.title %></h2>
-
-<h3><%= link_to @post.url, @post.url %></h3>
-<h5><%= @post.user.email %></h5>
+<h2><%= link_to @post.title, @post.url %>
+<small class="text-muted"> |
+	<%= pluralize(@post.votes.count, 'vote') %> by
+	<%= @post.user.email %> on
+	<%= @post.created_at.to_time.strftime('%b %-d, %Y @ %-I:%M%P') %>
+</small>
+</h2>
 
 <% if current_user %>
- 
-
-  
-<%= link_to "New Comment", new_comment_path(comment: { commentable_id: @post.id, commentable_type: @post.class }), id: 'new_comment_link', remote: true %>
-
-
-
+	<%= link_to "Comment", new_comment_path(comment: { commentable_id: @post.id, commentable_type: @post.class }), id: 'new_comment_link', remote: true, :class => 'btn btn-primary' %>
 <% end %>
-<div>
 
+<div>
   <ul class="comment-section">
   <% @post.comments.each do |comment| %>
     <%= render 'comments/replies', comment: comment %>

@@ -1,0 +1,15 @@
+<tr>
+	<td class="big-arrow"><%= link_to "▲", votes_path(vote: { post_id: post.id }), :method => :post, :class => 'new-vote-link' %></td>
+	<td>
+		<span class="title">
+			<%= link_to post.title, post.url %>
+		</span>
+		<br>
+		<span class="text-muted">
+			<%= pluralize(post.votes.count, 'vote') %> by
+			<%= post.user.email %> on
+			<%= post.created_at.to_time.strftime('%b %-d, %Y @ %-I:%M%P') %> |
+			<%= link_to pluralize(post.comments.count, 'comment'), post %>
+		</span>
+	</td>
+</tr>
