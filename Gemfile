@@ -10,6 +10,7 @@ gem 'jbuilder'
 gem 'bootstrap-sass', git: 'https://github.com/thomas-mcdonald/bootstrap-sass'
 gem 'validate_url'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'rails_12factor'
 
 group :test, :development do 
   gem 'rspec-rails'
