@@ -1,0 +1,8 @@
+<div>
+  <%= render comment %>
+  <ul>
+    <% comment.comments.each do |reply| %>
+      <%= render 'comments/replies', comment: reply %>
+    <% end %>
+  </ul>
+</div>

@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe "comments" do 
 
   context "when a user posts a comment" do
@@ -34,5 +33,4 @@ describe "comments" do
       page.should have_content 'example reply'
     end
   end
-
 end

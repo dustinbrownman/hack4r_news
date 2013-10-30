@@ -19,5 +19,4 @@ describe User do
     post = Post.new(title: "hello", url: "google.com")
     post.should_not be_valid
   end
-
 end

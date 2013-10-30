@@ -15,5 +15,4 @@ class Post < ActiveRecord::Base
     percent_of_day = (200 - minutes_since_post) / 200
     self.votes.count * percent_of_day
   end
-    
 end

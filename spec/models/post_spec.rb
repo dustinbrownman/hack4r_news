@@ -6,6 +6,4 @@ describe Post do
   it { should have_many :comments }
   it { should validate_presence_of :url }
   it { should validate_presence_of :title }
-
 end
-

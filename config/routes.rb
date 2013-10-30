@@ -1,9 +1,9 @@
 Hack4rNews::Application.routes.draw do
- resources :posts 
- resources :users
- resources :sessions
- resources :votes
- resources :comments
+ resources :posts, except: [:edit, :update, :destroy]
+ resources :users, only: [:new, :create]
+ resources :sessions, only: [:new, :create, :destroy]
+ resources :votes, only: :create
+ resources :comments, except: [:edit, :update, :destroy]
  
  get 'signup', to: 'users#new', as: 'signup'
  get 'login', to: 'sessions#new', as: 'login'

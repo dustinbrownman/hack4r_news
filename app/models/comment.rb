@@ -5,8 +5,6 @@ class Comment < ActiveRecord::Base
   validates_presence_of :content
 
   def post 
-    #binding.pry
     commentable.is_a?(Post) ? commentable : commentable.post
   end
-
 end
