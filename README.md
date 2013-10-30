@@ -5,7 +5,7 @@ A simple [Hacker News](https://news.ycombinator.com/news) clone, built in rails 
 
 My goal was to get more comfortable using rails, especially writing routes. This was also my first
 attempt with AJAX. Check out how the comments work to see it in action. I also didn't include all
-the restful actions (posts and comments cannot be destroyed). This is something I should add in at
+the RESTful actions (posts and comments cannot be destroyed). This is something I should add in at
 some point.
 
 Before running the app, run `bundle install` to install the necessary gems, `rake db:create` to
