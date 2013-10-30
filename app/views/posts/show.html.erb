@@ -10,12 +10,12 @@
 	<%= link_to "Comment", new_comment_path(comment: { commentable_id: @post.id, commentable_type: @post.class }), id: 'new_comment_link', remote: true, :class => 'btn btn-primary' %>
 <% end %>
 
-<div>
-  <ul class="comment-section">
+<h2>Comments ▼</h2>
+
+<div id="comment-section">
   <% @post.comments.each do |comment| %>
-    <%= render 'comments/replies', comment: comment %>
+    <%= render comment %>
   <% end %>
-  </ul>
 </div>
 
 

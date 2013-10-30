@@ -1,1 +1,5 @@
-$('#new_comment_link').hide().after('<%= j render("form", comment: @comment) %>')
+<% if @comment.commentable.is_a?(Comment) %>
+	$('#comment' + <%= @comment.commentable_id %> + " .reply-link").hide().after('<%= j render("form", comment: @comment) %>');
+<% else %>
+	$('#new_comment_link').hide().after('<%= j render("form", comment: @comment) %>');
+<% end %>

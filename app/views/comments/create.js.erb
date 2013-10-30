@@ -1,8 +1,9 @@
-$('#new_comment').remove();
-$('#new_comment_link').show();
-//debugger;
-$('.comment-section').append('<%= j render "replies", comment: @comment %>');
-$("html, body").animate({ scrollTop: $(document).height() }, "slow");
-
-// a miracle occurs, or, we find a way to highlight the new post.
-return false;
+<% if @comment.commentable.is_a?(Post) %>
+	$('#new_comment').remove();
+	$('#new_comment_link').show();
+	$('div#comment-section').append('<%= j render @comment %>');
+<% else %>
+	$('#new_comment').remove();
+	$('.reply-link').show();
+	$('div#comment<%= @comment.commentable_id %>').append('<%= j render @comment %>');
+<% end %>
