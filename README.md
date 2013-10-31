@@ -12,4 +12,6 @@ Before running the app, run `bundle install` to install the necessary gems, `rak
 create your database, and then `rake db:schema:load` to load the database schema (note that the
 poltergeist gem requires PhantomJS).
 
+Or you can check it out on [Heroku](http://hack4r-news.herokuapp.com).
+
 Enjoy!
